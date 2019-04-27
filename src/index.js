@@ -5,6 +5,9 @@ import morgan from 'morgan'
 
 import config from './config'
 
+// Services
+import SearchService from './search-service'
+
 // main is where our application resides
 async function main () {
   // Create a new application
@@ -13,9 +16,15 @@ async function main () {
   // Middlewares
   middlewares(app)
 
+  const service = SearchService()
+
+  // Initialize service by looping through them
+  app.use(service.basePath, service.route)
+
   app.get('/', async (req, res) => {
     res.status(200).json({
-      message: 'This is a github search api server'
+      endpoints: service.info,
+      routes: app.routes
     })
   })
 

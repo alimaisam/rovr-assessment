@@ -19,7 +19,7 @@ function Service () {
   
   export default (options) => {
     return {
-      basePath: '/search',
+      basePath: '/',
       info: {
         name: 'Search Service',
         service: 'search',
@@ -28,11 +28,13 @@ function Service () {
         paths: {
           searchByLanguage: {
             method: 'GET',
-            path: '/search/repo/language'
+            path: '/search/repo/language',
+            query: 'keyword=<required>&page=<optional>&per_page=<optional>'
           },
           searchByTopic: {
             method: 'GET',
-            path: '/search/repo/topic'
+            path: '/search/repo/topic',
+            query: 'keyword=<required>&page=<optional>&per_page=<optional>'
           }
         }
       },

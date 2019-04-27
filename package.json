@@ -12,7 +12,7 @@
     "test-dev": "cross-env NODE_ENV=test node_modules/.bin/nyc --reporter=text mocha --recursive --watch test/**/*.js",
     "cover": "cross-env NODE_ENV=test node_modules/.bin/nyc report --reporter=text-summary"
   },
-  "repository": "",
+  "repository": "https://github.com/alimaisam/rovr-assessment",
   "author": "alimaisam89@gmail.com",
   "license": "MIT",
   "dependencies": {

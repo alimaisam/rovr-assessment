@@ -18,7 +18,6 @@ async function main () {
 
   const service = SearchService()
 
-  // Initialize service by looping through them
   app.use(service.basePath, service.route)
 
   app.get('/', async (req, res) => {

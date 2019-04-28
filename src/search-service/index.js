@@ -13,6 +13,7 @@ function Service () {
     router
       .get('/search/repo/language', route.getRepoByLanguage)
       .get('/search/repo/topic', route.getRepoByTopic)
+      .get('/admin/report', '')
   
     return router
   }
@@ -35,6 +36,10 @@ function Service () {
             method: 'GET',
             path: '/search/repo/topic',
             query: 'keyword=<required>&page=<optional>&per_page=<optional>'
+          },
+          adminReportForSearches: {
+              method: 'GET',
+              path: 'admin/report'
           }
         }
       },

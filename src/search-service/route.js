@@ -24,8 +24,18 @@ export default function Route (model) {
     }
   }
 
+  async function getReportForAdminBySearches (req, res) {
+      try {
+          const result = await model.adminReport()
+          Ok(res)(result)
+      } catch (error) {
+          Err(res) (error)
+      }
+  }
+
   return {
     getRepoByLanguage,
-    getRepoByTopic
+    getRepoByTopic,
+    getReportForAdminBySearches
   }
 }

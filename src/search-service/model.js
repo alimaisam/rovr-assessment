@@ -6,9 +6,14 @@ export default function Model ( store ) {
     async function topic (query) {
       return store.topic(query.keyword, query.page, query.per_page)
     }
+
+    async function adminReport() {
+        return store.generateSearchReport()
+    }
   
     return {
       language,
-      topic
+      topic,
+      adminReport
     }
   }

@@ -31,10 +31,15 @@ export default function Store () {
         }
         return result;
     }
+
+    async function generateSearchReport () {
+        
+    }
   
     return {
       language,
-      topic
+      topic,
+      generateSearchReport
     }
   }
   

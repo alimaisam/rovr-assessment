@@ -13,7 +13,7 @@ function Service () {
     router
       .get('/search/repo/language', route.getRepoByLanguage)
       .get('/search/repo/topic', route.getRepoByTopic)
-      .get('/admin/report', '')
+      .get('/admin/report', route.getReportForAdminBySearches)
   
     return router
   }

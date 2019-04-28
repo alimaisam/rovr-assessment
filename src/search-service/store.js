@@ -1,5 +1,5 @@
 import axios from 'axios'
-import circularJSON from 'circular-json'
+import fs from 'fs'
 
 export default function Store () {
     async function language (keyword, page = 1, per_page = 10) {
@@ -14,6 +14,14 @@ export default function Store () {
             per_page,
             items: response.data.items
         }
+
+        const searchData = getSearchData()
+        const search = {
+            url,
+            search_result: result
+        }
+        searchData.searches.push(search);
+        saveSearchURL(searchData)
         return result;
     }
   
@@ -29,11 +37,36 @@ export default function Store () {
             per_page,
             items: response.data.items
         }
+
+        const searchData = getSearchData()
+        const search = {
+            url,
+            search_result: result
+        }
+        searchData.searches.push(search);
+        saveSearchURL(searchData)
         return result;
     }
 
     async function generateSearchReport () {
+        const data = getSearchData()
+        const body = []
         
+        data.searches.forEach(search => {
+            body.push(search);
+        });
+        return body
+    }
+
+    function getSearchData() {
+        const rawdata = fs.readFileSync('data/search.json')
+        const searches = JSON.parse(rawdata)
+        return searches
+    }
+
+    function saveSearchURL(data) {
+        const strData = JSON.stringify(data)
+        fs.writeFileSync('data/search.json', strData)
     }
   
     return {

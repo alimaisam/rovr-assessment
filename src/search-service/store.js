@@ -2,7 +2,7 @@ import axios from 'axios'
 import fs from 'fs'
 
 export default function Store () {
-    async function language (keyword, page = 1, per_page = 10) {
+    async function language (keyword, page = 1, per_page = 10, search_url) {
         if (!keyword)
             return null;
 
@@ -17,7 +17,7 @@ export default function Store () {
 
         const searchData = getSearchData()
         const search = {
-            url,
+            search_url,
             search_result: result
         }
         searchData.searches.push(search);
@@ -25,7 +25,7 @@ export default function Store () {
         return result;
     }
   
-    async function topic (keyword, page = 1, per_page = 10 ) {
+    async function topic (keyword, page = 1, per_page = 10, search_url ) {
         if (!keyword)
             return null;
 
@@ -40,7 +40,7 @@ export default function Store () {
 
         const searchData = getSearchData()
         const search = {
-            url,
+            search_url,
             search_result: result
         }
         searchData.searches.push(search);

@@ -6,7 +6,7 @@ export default function Route (model) {
   // Description: Get github repositories by language
   async function getRepoByLanguage (req, res) {
     try {
-      const result = await model.language(req.query)
+      const result = await model.language(req.query, req.url)
       Ok(res)(result)
     } catch (error) {
       Err(res)(error)
@@ -17,7 +17,7 @@ export default function Route (model) {
   // Description: Get github repositories by topic
   async function getRepoByTopic (req, res) {
     try {
-      const result = await model.topic(req.query)
+      const result = await model.topic(req.query, req.url)
       Ok(res)(result)
     } catch (error) {
       Err(res)(error)

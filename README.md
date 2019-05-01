@@ -33,3 +33,8 @@ $ yarn test
 ```
 $ yarn cover
 ```
+
+## Limitation
+
+* Used JSON file to read and write data instead of any database
+* Unit test only Search Model

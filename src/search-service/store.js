@@ -1,5 +1,3 @@
-import axios from 'axios'
-import fs from 'fs'
 import { getLaguageDataFromGithub, getTopicDataFromGithub } from '../helper/githubAPI'
 import { readSearchData, saveSearchData } from './../helper/fileTransaction'
 
@@ -58,22 +56,6 @@ export default function Store () {
         return body
     }
 
-    // function readSearchData() {
-    //     const rawdata = fs.readFileSync('data/search.json')
-    //     const searches = JSON.parse(rawdata)
-    //     return searches
-    // }
-
-    // function saveSearchData(data) {
-    //     const strData = JSON.stringify(data)
-    //     fs.writeFileSync('data/search.json', strData)
-    // }
-
-    // function getDataFromGithub(keyword, page, per_page) {
-    //     const url = `https://api.github.com/search/repositories?q=language:${keyword}&page=${page}&per_page=${per_page}`
-    //     return axios.get(url)
-    // }
-  
     return {
       language,
       topic,

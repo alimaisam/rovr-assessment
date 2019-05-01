@@ -8,8 +8,6 @@ export default function Store () {
         if (!keyword)
             return null;
 
-        //const url = `https://api.github.com/search/repositories?q=language:${keyword}&page=${page}&per_page=${per_page}`
-        //const response = await axios.get(url)
         const response = await getLaguageDataFromGithub(keyword, page, per_page)
         const result = {
             total_count: response.data.total_count,

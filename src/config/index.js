@@ -3,7 +3,7 @@ import convict from 'convict'
 const PORT = {
   doc: 'The port to bind',
   format: 'port',
-  default: process.env.PORT,
+  default: 5000,
   env: 'PORT'
 }
 

@@ -34,6 +34,12 @@ $ yarn test
 $ yarn cover
 ```
 
+## To Get Data from API on Android Emulator
+
+```
+$ ngrok http 5000
+```
+
 ## Limitation
 
 * Used JSON file to read and write data instead of any database
